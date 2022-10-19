@@ -6,6 +6,13 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + `/IHM/Accueil.html`);
 });
 
+app.get("/accueil", (req, res) => {
+  res.sendFile(__dirname + `/IHM/Accueil.html`);
+});
+
+app.get("/profil", (req, res) => {
+  res.sendFile(__dirname + `/IHM/Profil.html`);
+});
 
 
 
