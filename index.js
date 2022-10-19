@@ -13,6 +13,9 @@ app.get("/accueil", (req, res) => {
 app.get("/profil", (req, res) => {
   res.sendFile(__dirname + `/IHM/Profil.html`);
 });
+app.get("/erreur", (req, res) => {
+  res.sendFile(__dirname + `/IHM/erreur.html`);
+});
 
 
 
