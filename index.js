@@ -3,7 +3,17 @@ const app = express();
 const port = 8000;
 app.set('view engine', 'ejs');
 app.set("views", "pages");
+
 app.use(express.static("public"));
+
+//creation middleware
+const visitePages  = (request, response, next) => {
+  console.log(`${request.method} url:: ${request.url}`);
+  next()
+}
+
+//execution middleware
+app.use(visitePages)
 
 app.get("/", (req, res) => {
     res.render(`Accueil`, {name:'ValNas'});
@@ -19,6 +29,7 @@ app.get("/profil", (req, res) => {
 app.get("/erreur", (req, res) => {
   res.render(`erreur`, {name:'ValNas'});
 });
+
 
 
 
