@@ -4,6 +4,8 @@ const port = 8000;
 app.set('view engine', 'ejs');
 app.set("views", "pages");
 
+const routes = require('./controllers/accueil')
+
 app.use(express.static("public"));
 
 //creation middleware
@@ -15,9 +17,8 @@ const visitePages  = (request, response, next) => {
 //execution middleware
 app.use(visitePages)
 
-app.get("/", (req, res) => {
-    res.render(`Accueil`, {name:'ValNas'});
-});
+
+app.use(routes)
 
 app.get("/accueil", (req, res) => {
   res.render(`Accueil`, {name:'ValNas'});
